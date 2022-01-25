@@ -37,11 +37,12 @@ def filterLettersNotIn(word: string):
 def filterLeters(word: string):
     if len(lettersIn) == 0:
         return True
-    for letter in word:
-        if letter in lettersIn:
-            return True
+    wordArr = [let for let in word]
+    for letter in lettersIn:
+        if not (letter in wordArr):
+            return False
 
-    return False
+    return True
 
 
 def pickWord():
