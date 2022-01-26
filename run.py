@@ -2,7 +2,7 @@
 from random import random
 import string
 
-
+index = 0
 f = open('wordList.txt')
 words = f.read().lower().splitlines()
 lettersIn = []
@@ -69,13 +69,18 @@ def pickWord():
         exit(1)
 
     pickArr = sorted(newWords, key=getHeuristicNumber, reverse=True)
-    return pickArr[0]
+    return pickArr[index]
 
 
 done = False
 while not done:
     word = pickWord()
     print(word)
+    print('Do you want a different word?')
+    if input().strip() == 'yes':
+        index = index + 1
+        continue
+
     print('Enter letters that are not in the word (seperated by comma)')
     for x in input().split(','):
         if x:
@@ -92,6 +97,7 @@ while not done:
             lettersInPos.append((int(ents[0]), ents[1].strip().lower()))
     print('Are you done?')
     done = input() == 'yes'
+    index = 0
 
 
 f.close()
