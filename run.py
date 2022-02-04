@@ -82,13 +82,13 @@ while not done:
         index = index + 1
         continue
 
-    print('Enter letters that are not in the word (seperated by comma)')
-    for x in input().split(','):
+    print('Enter letters that are not in the word')
+    for x in input():
         if x:
             lettersNotIn.append(x.strip().lower())
 
-    print('Enter letters that are in the word (seperated by comma)')
-    for x in input().split(','):
+    print('Enter letters that are in the word')
+    for x in input():
         if x:
             lettersIn.append(x.strip().lower())
     print('Enter letters and position that are in the word (seperated by comma)')
